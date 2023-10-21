@@ -55,13 +55,4 @@ public class CollectibleItem : MonoBehaviour
             player.GetComponent<PlayerController>().collectItem(gameObject);
         }
     }
-
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            collected = true;
-            player = collision.gameObject;
-        }
-    }
 }
