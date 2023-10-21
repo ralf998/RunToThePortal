@@ -12,4 +12,10 @@ public class Portal : MonoBehaviour {
     void Activate() {
         this.GetComponent<SpriteRenderer>().enabled = true;
     }
+
+    public void OnTriggerEnter2D(Collider2D collision) {
+        if (this.GetComponent<SpriteRenderer>().enabled && collision.CompareTag("Player")) {
+            //TODO: next scene
+        }
+    }
 }

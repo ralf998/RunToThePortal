@@ -18,4 +18,9 @@ public class Monster : BaseState {
             stateMachine.ChangeState(sm.chaseState);
         }
     }*/
+
+    public override void UpdatePhysics() {
+        base.UpdatePhysics();
+        sm.agent.SetDestination(sm.target.position);
+    }
 }

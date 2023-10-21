@@ -27,7 +27,19 @@ public class CollectibleItem : MonoBehaviour
     private bool isButtonDown;
     private float bTimer;
 
-    // Start is called before the first frame update
+    void Start()
+    {
+        compendium = ItemCompendium.Instance;
+        gameController = GameController.Instance;
+    }
+
+    void Update()
+    {        
+        if (collected == true)
+        {
+            player.GetComponent<PlayerController>().collectItem(gameObject);
+        }
+    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -37,31 +49,4 @@ public class CollectibleItem : MonoBehaviour
             player = collision.gameObject;
         }
     }
-    void Start()
-    {
-        compendium = ItemCompendium.Instance;
-        gameController = GameController.Instance;
-
-
-
-
-
-        //Debug.Log(ItemCompendium.Instance.testeCoisa);
-
-    }
-
-     void Update()
-    {        
-        if (collected == true)
-        {
-            player.GetComponent<PlayerController>().collectItem(gameObject);
-        }
-    }
-
-    
-    // Update is called once per frame
-
-
-
-
 }

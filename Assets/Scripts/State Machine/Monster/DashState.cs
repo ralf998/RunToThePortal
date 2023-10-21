@@ -19,11 +19,12 @@ public class Dash : Monster {
     }
 
     public override void UpdatePhysics() {
-        base.UpdatePhysics();
-        if (!sm.isDashing) {
+        /*if (!sm.isDashing) {
             sm.rigidBody.velocity = sm.speed * (sm.player.transform.position - sm.tf.position).normalized;
         } else{
             sm.rigidBody.velocity = sm.dashVec;
-        }
+        }*/
+        sm.target = sm.player.transform;
+        base.UpdatePhysics();
     }
 }

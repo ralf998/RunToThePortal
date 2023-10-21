@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MonsterSM : StateMachine {
     [HideInInspector]
@@ -11,10 +12,12 @@ public class MonsterSM : StateMachine {
     public Dash dashState;
 
     public GameObject player;
+    public Transform target;
     public GameObject portal;
 
     public Rigidbody2D rigidBody;
     public Transform tf;
+    public NavMeshAgent agent;
     public SpriteRenderer sprender;
     public float speed = 1f;
 
@@ -30,9 +33,9 @@ public class MonsterSM : StateMachine {
     }
 
     protected override BaseState GetInitialState() {
+        agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
-        //player = GameObject.FindGameObjectWithTag("Portal");
-        sprender = gameObject.GetComponent<SpriteRenderer>();
+        portal = GameObject.FindGameObjectWithTag("Portal");
         tf = GetComponent<Transform>();
         return waitingState;
     }
@@ -42,8 +45,8 @@ public class MonsterSM : StateMachine {
     }
 
     private void RandState() {
-        //this.ChangeState(chaseState);
-        this.ChangeState(dashState);
+        this.ChangeState(chaseState);
+        //this.ChangeState(dashState);
 
         sprender.enabled = true;
     }

@@ -17,11 +17,12 @@ public class Chase : Monster {
     }
 
     public override void UpdatePhysics() {
-        base.UpdatePhysics();
-        sm.rigidBody.velocity = sm.speed * (sm.player.transform.position - sm.tf.position).normalized;
+        //sm.rigidBody.velocity = sm.speed * (sm.player.transform.position - sm.tf.position).normalized;
+        sm.target = sm.player.transform;
 
-        if (sm.portal.GetComponent<SpriteRenderer>().enabled == true) {
-            sm.rigidBody.velocity = sm.speed * (sm.rigidBody.velocity + new Vector2((sm.portal.transform.position - sm.tf.position).x, (sm.portal.transform.position - sm.tf.position).z).normalized/2).normalized;
-        }
+        //if (sm.portal.GetComponent<SpriteRenderer>().enabled == true) {
+            //sm.rigidBody.velocity = sm.speed * (sm.rigidBody.velocity + new Vector2((sm.portal.transform.position - sm.tf.position).x, (sm.portal.transform.position - sm.tf.position).z).normalized/2).normalized;
+        //}
+        base.UpdatePhysics();
     }
 }
