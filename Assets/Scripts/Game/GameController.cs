@@ -87,7 +87,7 @@ public class GameController : MonoBehaviour
     {
         playerData.StartPlayer();
         compendium = ItemCompendium.Instance;
-        loadMap();
+        //loadMap();
 
     }
 

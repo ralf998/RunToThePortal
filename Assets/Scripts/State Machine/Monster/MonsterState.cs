@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterT : BaseState {
-    public MonsterTSM sm;
+public class Monster : BaseState {
+    public MonsterSM sm;
     
-    public MonsterT(string name, MonsterTSM stateMachine) : base(name, stateMachine) {}
+    public Monster(string name, MonsterSM stateMachine) : base(name, stateMachine) {}
 
     public override void Enter() {
         base.Enter();
@@ -14,7 +14,7 @@ public class MonsterT : BaseState {
 
     /*public override void UpdateLogic() {
         base.UpdateLogic();
-        if (sm.portal.enabled == true && sm.currentState != sm.chaseState) {
+        if (sm.portal.GetComponent<SpriteRenderer>().enabled == true && sm.currentState != sm.chaseState) {
             stateMachine.ChangeState(sm.chaseState);
         }
     }*/

@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 2011893697176949826}
   - component: {fileID: 2011893697176949827}
   m_Layer: 0
-  m_Name: Square
-  m_TagString: Untagged
+  m_Name: Monster
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,6 +105,9 @@ MonoBehaviour:
   tf: {fileID: 2011893697176949824}
   sprender: {fileID: 2011893697176949825}
   speed: 1
+  isDashing: 0
+  dashVec: {x: 0, y: 0}
+  dashSpeed: 5
 --- !u!50 &2011893697176949826
 Rigidbody2D:
   serializedVersion: 4
