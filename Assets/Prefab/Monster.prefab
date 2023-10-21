@@ -105,6 +105,9 @@ MonoBehaviour:
   tf: {fileID: 2011893697176949824}
   sprender: {fileID: 2011893697176949825}
   speed: 1
+  isDashing: 0
+  dashVec: {x: 0, y: 0}
+  dashSpeed: 5
 --- !u!50 &2011893697176949826
 Rigidbody2D:
   serializedVersion: 4
