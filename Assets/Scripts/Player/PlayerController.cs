@@ -88,6 +88,7 @@ public class PlayerController : MonoBehaviour {
         }
         if(Input.GetKeyDown(KeyCode.Space) && !playerData.collectedItem.isNull()) { 
             useItem();
+            playerData.collectedItem = new ItemCompendium.ItemData();
         }
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         rigidBody.velocity = (moveInput != Vector2.zero) ? playerData.speed * (moveInput).normalized : Vector2.zero;
