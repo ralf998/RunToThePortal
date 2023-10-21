@@ -23,6 +23,10 @@ public class MonsterSM : StateMachine {
     public Vector2 dashVec;
     public float dashSpeed = 8f;
 
+    //Collision
+    public Vector2 collisionNormal;
+    public bool isColliding = false;
+
     private void Awake() {
         waitingState = new Waiting(this);
         chaseState = new Chase(this);
@@ -60,5 +64,31 @@ public class MonsterSM : StateMachine {
         } else {
             isDashing = false;
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D collisionInfo) {
+        if (!collisionInfo.collider.CompareTag("Player")) {
+            Vector2 contactNormal = new Vector2(0,0);
+            foreach (ContactPoint2D contact in collisionInfo.contacts) {
+                contactNormal += contact.normal;
+            }
+            collisionNormal = contactNormal.normalized;
+            isColliding = true;
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D collisionInfo) {
+        if (!collisionInfo.collider.CompareTag("Player")) {
+            Vector2 contactNormal = new Vector2(0,0);
+            foreach (ContactPoint2D contact in collisionInfo.contacts) {
+                contactNormal += contact.normal;
+            }
+            collisionNormal = contactNormal.normalized;
+            isColliding = true;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collisionInfo) {
+        isColliding = false;
     }
 }
