@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterT : BaseState {
-    public MonsterTSM sm;
+public class Monster : BaseState {
+    public MonsterSM sm;
     
-    public MonsterT(string name, MonsterTSM stateMachine) : base(name, stateMachine) {}
+    public Monster(string name, MonsterSM stateMachine) : base(name, stateMachine) {}
 
     public override void Enter() {
         base.Enter();

@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterTSM : StateMachine {
+public class MonsterSM : StateMachine {
     [HideInInspector]
     public Waiting waitingState;
     [HideInInspector]
     public Chase chaseState;
+    [HideInInspector]
+    public Dash dashState;
 
     public GameObject player;
     public GameObject portal;
@@ -19,6 +21,7 @@ public class MonsterTSM : StateMachine {
     private void Awake() {
         waitingState = new Waiting(this);
         chaseState = new Chase(this);
+        dashState = new Dash(this);
     }
 
     protected override BaseState GetInitialState() {
@@ -30,11 +33,12 @@ public class MonsterTSM : StateMachine {
     }
 
     public void LeaveWaiting() {
-        Invoke("RandState", 3.0f);
+        Invoke("RandState", 3f);
     }
 
     private void RandState() {
         this.ChangeState(chaseState);
+        //this.ChangeState(dashState);
 
         sprender.enabled = true;
     }

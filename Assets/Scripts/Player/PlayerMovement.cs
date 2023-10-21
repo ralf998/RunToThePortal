@@ -7,9 +7,7 @@ public class PlayerMovement : MonoBehaviour {
     public Rigidbody2D rigidBody;
     public float speed = 2f;
 
-    void Start() {
-        
-    }
+    void Start() {}
 
     void Update() {
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
