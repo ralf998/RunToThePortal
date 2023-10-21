@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
             maxSpeed = 6f;
             shielded = false;
             invisible = false;
-            collectedItem = new ItemCompendium.ItemData();
+            collectedItem = new ItemCompendium.ItemData("null", -1, "null");
         }
 
         public void LoadData(PlayerData data)
@@ -117,7 +117,7 @@ public class GameController : MonoBehaviour
             if (generator == 1)
             {
                 newItem = Instantiate(item, itemSP.transform.position, Quaternion.identity);
-                //newChest.transform.SetParent(map.transform);
+                
             }
         }
     }
