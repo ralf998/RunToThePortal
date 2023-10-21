@@ -289,10 +289,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6090959728500787011, guid: 6db91be188d27f747a17286a307826bc, type: 3}
-      propertyPath: speed
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6090959728500787064, guid: 6db91be188d27f747a17286a307826bc, type: 3}
       propertyPath: m_Name
       value: Triangle

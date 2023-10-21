@@ -22,9 +22,6 @@ public class Dash : Monster {
         base.UpdatePhysics();
         if (!sm.isDashing) {
             sm.rigidBody.velocity = sm.speed * (sm.player.transform.position - sm.tf.position).normalized;
-            if (sm.portal.GetComponent<SpriteRenderer>().enabled == true) {
-                stateMachine.ChangeState(sm.chaseState);
-            }
         } else{
             sm.rigidBody.velocity = sm.dashVec;
         }

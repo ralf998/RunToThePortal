@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 6170454031451086859}
   - component: {fileID: 6170454031451086858}
   - component: {fileID: 6170454031451086860}
+  - component: {fileID: 5387340457723952036}
   m_Layer: 0
   m_Name: Portal
-  m_TagString: Untagged
+  m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,3 +102,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &5387340457723952036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6170454031451086857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2072d5394a74b16418bd91adda54294a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

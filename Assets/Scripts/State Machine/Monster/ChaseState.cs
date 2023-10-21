@@ -9,7 +9,7 @@ public class Chase : Monster {
 
     public override void Enter() {
         base.Enter();
-        sm.speed = 2f;
+        sm.speed = 1f;
     }
 
     public override void UpdateLogic() {

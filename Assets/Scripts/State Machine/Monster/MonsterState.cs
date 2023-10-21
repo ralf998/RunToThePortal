@@ -14,7 +14,7 @@ public class Monster : BaseState {
 
     /*public override void UpdateLogic() {
         base.UpdateLogic();
-        if (sm.portal.enabled == true && sm.currentState != sm.chaseState) {
+        if (sm.portal.GetComponent<SpriteRenderer>().enabled == true && sm.currentState != sm.chaseState) {
             stateMachine.ChangeState(sm.chaseState);
         }
     }*/
