@@ -11,4 +11,11 @@ public class MonsterT : BaseState {
         base.Enter();
         sm.rigidBody.velocity = new Vector3(0,0,0);
     }
+
+    /*public override void UpdateLogic() {
+        base.UpdateLogic();
+        if (sm.portal.enabled == true && sm.currentState != sm.chaseState) {
+            stateMachine.ChangeState(sm.chaseState);
+        }
+    }*/
 }
