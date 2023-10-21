@@ -9,23 +9,19 @@ public class CollectibleItem : MonoBehaviour
 {
 
     public TextMeshProUGUI info;
-
-    private GameController gameController;
+    
     private GameObject player;
     private ItemCompendium compendium;
 
     public int randomID;
 
     public int itemID;
-    public string itemName = "Test";
-    public string itemDescription = "Testing bro";
+    public string itemName;
+    public string itemDescription;
     public bool collected = false;
 
     
     public ItemCompendium.ItemData currentItem;
-
-    private bool isButtonDown;
-    private float bTimer;
 
     // Start is called before the first frame update
 
@@ -40,14 +36,16 @@ public class CollectibleItem : MonoBehaviour
     void Start()
     {
         compendium = ItemCompendium.Instance;
-        gameController = GameController.Instance;
+       
+        randomID = Random.Range(0, compendium.itemGlossary.Count);
 
+        itemName = ItemCompendium.Instance.itemGlossary[randomID].Name;
+        ItemCompendium.ItemData currentItem = new(ItemCompendium.Instance.itemGlossary[randomID].Name, ItemCompendium.Instance.itemGlossary[randomID].ID, ItemCompendium.Instance.itemGlossary[randomID].Description);
 
-
-
-
-        //Debug.Log(ItemCompendium.Instance.testeCoisa);
-
+        itemName = currentItem.Name;
+        itemDescription = currentItem.Description;
+        itemID = currentItem.ID;
+        gameObject.GetComponent<SpriteRenderer>().sprite = compendium.sprites[randomID];
     }
 
      void Update()
