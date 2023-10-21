@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour {
     private GameController gameController;
     private CollectibleItem itemScript;
     private Animator playerMovement;
-    private float vertical, horizontal;
     
 
     // PUBLIC
@@ -77,8 +76,6 @@ public class PlayerController : MonoBehaviour {
         resistance = playerData.resistance;
         timer = 0f;
         playerMovement = GetComponent<Animator>();
-        vertical = playerMovement.GetFloat("Vertical");
-        horizontal = playerMovement.GetFloat("Horizontal");
     }
 
     void Update() {
@@ -97,7 +94,7 @@ public class PlayerController : MonoBehaviour {
         }
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         rigidBody.velocity = (moveInput != Vector2.zero) ? playerData.speed * (moveInput).normalized : Vector2.zero;
-        vertical = Input.GetAxis("Vertical");
-        horizontal = Input.GetAxis("Horizontal");
+        playerMovement.SetFloat("Vertical", Mathf.Abs(Input.GetAxis("Vertical")));
+        playerMovement.SetFloat("Horizontal", Mathf.Abs(Input.GetAxis("Horizontal")));
     }
 }

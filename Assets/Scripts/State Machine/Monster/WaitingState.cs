@@ -19,4 +19,6 @@ public class Waiting : Monster {
         base.Exit();
         sm.GetComponent<Collider2D>().isTrigger = false;
     }
+    
+    public override void UpdatePhysics() {}
 }
