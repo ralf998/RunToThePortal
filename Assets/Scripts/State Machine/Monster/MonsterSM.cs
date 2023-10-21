@@ -18,6 +18,11 @@ public class MonsterSM : StateMachine {
     public SpriteRenderer sprender;
     public float speed = 1f;
 
+    //DashState
+    public bool isDashing = false;
+    public Vector2 dashVec;
+    public float dashSpeed = 8f;
+
     private void Awake() {
         waitingState = new Waiting(this);
         chaseState = new Chase(this);
@@ -37,9 +42,23 @@ public class MonsterSM : StateMachine {
     }
 
     private void RandState() {
-        this.ChangeState(chaseState);
-        //this.ChangeState(dashState);
+        //this.ChangeState(chaseState);
+        this.ChangeState(dashState);
 
         sprender.enabled = true;
+    }
+
+    public void DashCicle() {
+        if (currentState == dashState) {
+            isDashing = !isDashing;
+            if (isDashing) {
+                dashVec =  dashSpeed * (player.transform.position - tf.position).normalized;
+                Invoke("DashCicle", 0.5f);
+            } else{
+                Invoke("DashCicle", 3);
+            }
+        } else {
+            isDashing = false;
+        }
     }
 }
