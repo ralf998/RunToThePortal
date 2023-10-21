@@ -18,4 +18,16 @@ public class Monster : BaseState {
             stateMachine.ChangeState(sm.chaseState);
         }
     }*/
+
+    public override void UpdatePhysics() {
+        base.UpdatePhysics();
+
+        if (sm.isColliding == true) {
+            if ((sm.collisionNormal.x < 0.5 && sm.collisionNormal.x > -0.5) && ((sm.player.gameObject.GetComponent<Transform>().position.y > sm.tf.position.y && sm.collisionNormal.y < sm.tf.position.y) || (sm.player.gameObject.GetComponent<Transform>().position.y < sm.tf.position.y && sm.collisionNormal.y > sm.tf.position.y))) {
+                sm.rigidBody.velocity = sm.speed * new Vector2(sm.player.gameObject.GetComponent<Transform>().position.x - sm.tf.position.x, 0).normalized;
+            } else if ((sm.collisionNormal.y < 0.2 && sm.collisionNormal.y > -0.2) && ((sm.player.gameObject.GetComponent<Transform>().position.x > sm.tf.position.x && sm.collisionNormal.x < sm.tf.position.x) || (sm.player.gameObject.GetComponent<Transform>().position.x < sm.tf.position.x && sm.collisionNormal.x > sm.tf.position.x))) {
+                sm.rigidBody.velocity = sm.speed * new Vector2(0, sm.player.gameObject.GetComponent<Transform>().position.y - sm.tf.position.y).normalized;
+            }
+        }
+    }
 }
