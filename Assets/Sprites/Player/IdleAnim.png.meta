@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7325ec499f78b1541b4dcfde979a8bb3
+guid: 1112a41f525330a43924fcbe3b97e746
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RunningUpAnim
+      name: IdleAnim
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81fe0cfc91eac8f4ea234c3e50ca23cb
-      internalID: -298635742
+      spriteID: 3ab8c8a7cb5c60746b6b028286b65f83
+      internalID: 671042717
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RunningUpAnim_1
+      name: IdleAnim_1
       rect:
         serializedVersion: 2
         x: 32
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 818d11a24a10dee4c8216bb599a4b713
-      internalID: -343581319
+      spriteID: 7c537bdc9228fab469365914e59f4aad
+      internalID: -1926835022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RunningUpAnim_2
+      name: IdleAnim_2
       rect:
         serializedVersion: 2
         x: 64
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 411f9a1954bde87408329c9375791a60
-      internalID: -418876354
+      spriteID: 466411c778cc0c34ea1d0bff5e3a7393
+      internalID: -2053146400
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RunningUpAnim_3
+      name: IdleAnim_3
       rect:
         serializedVersion: 2
         x: 96
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19a37d6bf11358a4c9584f9ec674c83e
-      internalID: 526904802
+      spriteID: 7c88ff4c534d7d34e8ae37f45a186b7c
+      internalID: 604560093
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RunningUpAnim_4
+      name: IdleAnim_4
       rect:
         serializedVersion: 2
         x: 128
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95e95fd79cbe48a4995038aff32f663c
-      internalID: 991684030
+      spriteID: 45a2a5c1948c04e488f72aa96f5b2b5b
+      internalID: -1597167269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RunningUpAnim_5
+      name: IdleAnim_5
       rect:
         serializedVersion: 2
         x: 160
@@ -224,29 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 405926e649564e24ea42461e332b5b43
-      internalID: -264882171
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RunningUpAnim_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 654a0de81ce671341a4eb4a85154d9ea
-      internalID: 231140255
+      spriteID: 895080c0cfc44024fae8d112076e3954
+      internalID: 918194415
       vertices: []
       indices: 
       edges: []
@@ -262,13 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RunningUpAnim: -298635742
-      RunningUpAnim_1: -343581319
-      RunningUpAnim_2: -418876354
-      RunningUpAnim_3: 526904802
-      RunningUpAnim_4: 991684030
-      RunningUpAnim_5: -264882171
-      RunningUpAnim_6: 231140255
+      IdleAnim: 671042717
+      IdleAnim_1: -1926835022
+      IdleAnim_2: -2053146400
+      IdleAnim_3: 604560093
+      IdleAnim_4: -1597167269
+      IdleAnim_5: 918194415
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
