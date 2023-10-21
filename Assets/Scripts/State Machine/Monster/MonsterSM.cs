@@ -30,8 +30,8 @@ public class MonsterSM : StateMachine {
     }
 
     protected override BaseState GetInitialState() {
-        //player.AddRange(GameObject.FindGameObjectWithTag("Player"));
-        //player.AddRange(GameObject.FindGameObjectWithTag("Portal"));
+        player = GameObject.FindGameObjectWithTag("Player");
+        //player = GameObject.FindGameObjectWithTag("Portal");
         sprender = gameObject.GetComponent<SpriteRenderer>();
         tf = GetComponent<Transform>();
         return waitingState;
