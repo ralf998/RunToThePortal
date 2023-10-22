@@ -109,7 +109,8 @@ public class GameController : MonoBehaviour
 
     public void loadMap()
     {
-        generator = Random.Range(0, mapsPointer.Count + 1);
+        generator = Random.Range(0, mapsPointer.Count);
+        Debug.Log("Level_" + mapsPointer[generator]);
         SceneManager.LoadScene("Level_" + mapsPointer[generator]);
         
         SceneManager.sceneLoaded += generateMap;
