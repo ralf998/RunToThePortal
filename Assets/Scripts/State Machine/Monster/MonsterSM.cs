@@ -27,10 +27,13 @@ public class MonsterSM : StateMachine {
     public Vector2 collisionNormal;
     public bool isColliding = false;
 
+    public Animator monsterMovement;
+
     private void Awake() {
         waitingState = new Waiting(this);
         chaseState = new Chase(this);
         dashState = new Dash(this);
+        monsterMovement = GetComponent<Animator>();
     }
 
     protected override BaseState GetInitialState() {
@@ -46,8 +49,8 @@ public class MonsterSM : StateMachine {
     }
 
     private void RandState() {
-        //this.ChangeState(chaseState);
-        this.ChangeState(dashState);
+        this.ChangeState(chaseState);
+        //this.ChangeState(dashState);
 
         sprender.enabled = true;
     }
