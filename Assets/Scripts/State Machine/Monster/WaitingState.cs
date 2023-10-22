@@ -14,11 +14,12 @@ public class Waiting : Monster {
         sm.speed = 1f;
         sm.LeaveWaiting();
     }
+    
+    public override void UpdateLogic() {}
+    public override void UpdatePhysics() {}
 
     public override void Exit() {
         base.Exit();
         sm.GetComponent<Collider2D>().isTrigger = false;
     }
-    
-    public override void UpdatePhysics() {}
 }
