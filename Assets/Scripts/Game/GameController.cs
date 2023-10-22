@@ -102,15 +102,14 @@ public class GameController : MonoBehaviour
         obstaclesSP = GameObject.FindGameObjectsWithTag("ObstacleSpawnPoint");
         portal = GameObject.FindGameObjectWithTag("Portal");
         generateItems();
-        Invoke("loadLevel" + mapsPointer[generator], 0f);
-        mapsPointer.Remove(mapsPointer[generator]);
+        Invoke("LoadLevel" + mapsPointer[generator], 0f);
+        //mapsPointer.Remove(mapsPointer[generator]);
         //generateObstacles();
     }
 
     public void loadMap()
     {
         generator = Random.Range(0, mapsPointer.Count);
-        Debug.Log("Level_" + mapsPointer[generator]);
         SceneManager.LoadScene("Level_" + mapsPointer[generator]);
         
         SceneManager.sceneLoaded += generateMap;
@@ -142,16 +141,17 @@ public class GameController : MonoBehaviour
 
         }
     }
-    private void Update()
-    {
-        if(timeLeft > 0)
-        {
+
+    private void Update() {
+        if(timeLeft > 0) {
             timeLeft-= Time.deltaTime;
-        }
-        else
-        {
+        } else if (portal != null && portal.GetComponent<SpriteRenderer>().enabled == false) {
             portal.GetComponent<Portal>().Activate();
         }
     }
 
+    //temporario enquanto so tem 1 level
+    public void returnMenu() {
+        SceneManager.LoadScene("Main_Menu");
+    }
 }

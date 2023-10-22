@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Portal : MonoBehaviour {
+    private GameController gameController;
+
     void Start() {
+        gameController = GameController.Instance;
         this.GetComponent<SpriteRenderer>().enabled = false;
     }
 
@@ -15,7 +18,7 @@ public class Portal : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D collision) {
         if (this.GetComponent<SpriteRenderer>().enabled && collision.CompareTag("Player")) {
-            //TODO: next scene
+            gameController.returnMenu();
         }
     }
 }
