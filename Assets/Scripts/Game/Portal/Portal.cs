@@ -9,7 +9,7 @@ public class Portal : MonoBehaviour {
 
     void Update() {}
 
-    void Activate() {
+    public void Activate() {
         this.GetComponent<SpriteRenderer>().enabled = true;
     }
 

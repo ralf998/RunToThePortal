@@ -9,6 +9,7 @@ using static UnityEditor.Progress;
 public class GameController : MonoBehaviour
 {
 
+
     public struct PlayerData
     {
         public int health, maxHealth, limitHealth;
@@ -57,8 +58,9 @@ public class GameController : MonoBehaviour
     private List<string> mapsPointer = new List<string> { "1" };
 
     // Changeable Variables
+    private float timeLeft;
     private GameObject[] itemsSP, obstaclesSP;
-    private GameObject map, newMap, newItem,newObstacle;
+    private GameObject map, newMap, newItem,newObstacle, portal;
 
     public PlayerData playerData;
 
@@ -95,19 +97,26 @@ public class GameController : MonoBehaviour
     
     void generateMap(Scene scene, LoadSceneMode mode)
     {       
-        map = GameObject.FindGameObjectWithTag("Map");
+        //map = GameObject.FindGameObjectWithTag("Map");
         itemsSP = GameObject.FindGameObjectsWithTag("ItemSpawnPoint");     
         obstaclesSP = GameObject.FindGameObjectsWithTag("ObstacleSpawnPoint");
+        portal = GameObject.FindGameObjectWithTag("Portal");
         generateItems();
-        generateObstacles();
+        Invoke("loadLevel" + mapsPointer[generator], 0f);
+        mapsPointer.Remove(mapsPointer[generator]);
+        //generateObstacles();
     }
 
     public void loadMap()
     {
         generator = Random.Range(0, mapsPointer.Count + 1);
         SceneManager.LoadScene("Level_" + mapsPointer[generator]);
-        mapsPointer.Remove(mapsPointer[generator]);
+        
         SceneManager.sceneLoaded += generateMap;
+    }
+    void LoadLevel1()
+    {
+        timeLeft = 60f;
     }
     void generateItems()
     {
@@ -116,8 +125,7 @@ public class GameController : MonoBehaviour
             generator = Random.Range(0, 2);
             if (generator == 1)
             {
-                newItem = Instantiate(item, itemSP.transform.position, Quaternion.identity);
-                
+                newItem = Instantiate(item, itemSP.transform.position, Quaternion.identity);                
             }
         }
     }
@@ -131,6 +139,17 @@ public class GameController : MonoBehaviour
                 newObstacle = Instantiate(obstacle, obstacleSP.transform.position, Quaternion.identity);                
             }
 
+        }
+    }
+    private void Update()
+    {
+        if(timeLeft > 0)
+        {
+            timeLeft-= Time.deltaTime;
+        }
+        else
+        {
+            portal.GetComponent<Portal>().Activate();
         }
     }
 
