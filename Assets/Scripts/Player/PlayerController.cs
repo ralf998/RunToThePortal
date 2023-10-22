@@ -126,7 +126,11 @@ public class PlayerController : MonoBehaviour {
             playerMovement.SetBool("MovingLeft", false);
             playerMovement.SetBool("MovingRight", false);
         }
+    }
 
-        
+    public void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.collider.CompareTag("Monster")) {
+            gameController.returnMenu();
+        }
     }
 }
