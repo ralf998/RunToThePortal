@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
     // PRIVATE
     private GameController gameController;
     private CollectibleItem itemScript;
+    private Animator playerMovement;
     
 
     // PUBLIC
@@ -74,6 +75,7 @@ public class PlayerController : MonoBehaviour {
         playerData.shielded = false;
         resistance = playerData.resistance;
         timer = 0f;
+        playerMovement = GetComponent<Animator>();
     }
 
     void Update() {
@@ -92,5 +94,39 @@ public class PlayerController : MonoBehaviour {
         }
         Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         rigidBody.velocity = (moveInput != Vector2.zero) ? playerData.speed * (moveInput).normalized : Vector2.zero;
+        if(Input.GetAxis("Horizontal") != 0)
+        {
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                playerMovement.SetBool("MovingRight", true);
+                playerMovement.SetBool("MovingLeft", false);
+            }
+            else 
+            { 
+                playerMovement.SetBool("MovingLeft", true);
+                playerMovement.SetBool("MovingRight", false);
+            }
+            playerMovement.SetBool("MovingDownwards", false);
+            playerMovement.SetBool("MovingUpwards", false);
+            playerMovement.SetBool("Idle", false);
+        }
+        else if(Input.GetAxis("Vertical") != 0)
+        {
+            if(Input.GetAxis("Vertical") > 0) playerMovement.SetBool("MovingUpwards", true);
+            else playerMovement.SetBool("MovingDownwards", true);
+            playerMovement.SetBool("MovingLeft", false);
+            playerMovement.SetBool("MovingRight", false);
+            playerMovement.SetBool("Idle", false);
+        }
+        else
+        {
+            playerMovement.SetBool("Idle", true);
+            playerMovement.SetBool("MovingDownwards", false);
+            playerMovement.SetBool("MovingUpwards", false);
+            playerMovement.SetBool("MovingLeft", false);
+            playerMovement.SetBool("MovingRight", false);
+        }
+
+        
     }
 }

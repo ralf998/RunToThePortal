@@ -9,37 +9,21 @@ public class CollectibleItem : MonoBehaviour
 {
 
     public TextMeshProUGUI info;
-
-    private GameController gameController;
+    
     private GameObject player;
     private ItemCompendium compendium;
 
     public int randomID;
 
     public int itemID;
-    public string itemName = "Test";
-    public string itemDescription = "Testing bro";
+    public string itemName;
+    public string itemDescription;
     public bool collected = false;
 
     
     public ItemCompendium.ItemData currentItem;
 
-    private bool isButtonDown;
-    private float bTimer;
-
-    void Start()
-    {
-        compendium = ItemCompendium.Instance;
-        gameController = GameController.Instance;
-    }
-
-     void Update()
-    {        
-        if (collected == true)
-        {
-            player.GetComponent<PlayerController>().collectItem(gameObject);
-        }
-    }
+    // Start is called before the first frame update
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -47,6 +31,28 @@ public class CollectibleItem : MonoBehaviour
         {
             collected = true;
             player = collision.gameObject;
+        }
+    }
+    void Start()
+    {
+        compendium = ItemCompendium.Instance;
+       
+        randomID = Random.Range(0, compendium.itemGlossary.Count);
+
+        itemName = ItemCompendium.Instance.itemGlossary[randomID].Name;
+        ItemCompendium.ItemData currentItem = new(ItemCompendium.Instance.itemGlossary[randomID].Name, ItemCompendium.Instance.itemGlossary[randomID].ID, ItemCompendium.Instance.itemGlossary[randomID].Description);
+
+        itemName = currentItem.Name;
+        itemDescription = currentItem.Description;
+        itemID = currentItem.ID;
+        gameObject.GetComponent<SpriteRenderer>().sprite = compendium.sprites[randomID];
+    }
+
+     void Update()
+    {        
+        if (collected == true)
+        {
+            player.GetComponent<PlayerController>().collectItem(gameObject);
         }
     }
 }
