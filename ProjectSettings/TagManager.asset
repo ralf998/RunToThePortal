@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Portal
   - Monster
+  - ItemSpawnPoint
+  - ObstacleSpawnPoint
   layers:
   - Default
   - TransparentFX
