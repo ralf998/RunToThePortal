@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 using static UnityEditor.Progress;
 
 public class GameController : MonoBehaviour
@@ -61,6 +63,7 @@ public class GameController : MonoBehaviour
     private float timeLeft;
     private GameObject[] itemsSP, obstaclesSP;
     private GameObject map, newMap, newItem,newObstacle, portal;
+    private Text timeBox;
 
     public PlayerData playerData;
 
@@ -89,6 +92,7 @@ public class GameController : MonoBehaviour
     {
         playerData.StartPlayer();
         compendium = ItemCompendium.Instance;
+        timeLeft = 0f;
         //loadMap();
 
     }
@@ -103,7 +107,7 @@ public class GameController : MonoBehaviour
         portal = GameObject.FindGameObjectWithTag("Portal");
         generateItems();
         Invoke("loadLevel" + mapsPointer[generator], 0f);
-        mapsPointer.Remove(mapsPointer[generator]);
+        //mapsPointer.Remove(mapsPointer[generator]);
         //generateObstacles();
     }
 
@@ -118,6 +122,7 @@ public class GameController : MonoBehaviour
     void LoadLevel1()
     {
         timeLeft = 60f;
+        timeBox = GameObject.FindGameObjectWithTag("TimeBox").GetComponent<Text>();
     }
     void generateItems()
     {
@@ -147,8 +152,10 @@ public class GameController : MonoBehaviour
         if(timeLeft > 0)
         {
             timeLeft-= Time.deltaTime;
+            timeBox.text = "Time: " + string.Format("{0:N0}", timeLeft) + "s";
+
         }
-        else
+        else if(gameOver)
         {
             portal.GetComponent<Portal>().Activate();
         }

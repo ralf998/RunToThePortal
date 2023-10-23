@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Security.Cryptography;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour {
     private GameController gameController;
     private CollectibleItem itemScript;
     private Animator playerMovement;
+    private GameObject itemBox;
     
 
     // PUBLIC
@@ -58,12 +60,15 @@ public class PlayerController : MonoBehaviour {
             resistance = playerData.maxResistance;
             timer = 120f;
         }
+        itemBox.GetComponent<Image>().color = Color.clear;
     }
 
     public void collectItem(GameObject item)
     {
         itemScript = item.GetComponent<CollectibleItem>();
         playerData.collectedItem = itemScript.currentItem;
+        itemBox.GetComponent<Image>().sprite = item.GetComponent<SpriteRenderer>().sprite;
+        itemBox.GetComponent<Image>().color = Color.white;
         Destroy(item);
     }
 
@@ -76,6 +81,7 @@ public class PlayerController : MonoBehaviour {
         resistance = playerData.resistance;
         timer = 0f;
         playerMovement = GetComponent<Animator>();
+        itemBox = GameObject.FindGameObjectWithTag("ItemBox");
     }
 
     void Update() {

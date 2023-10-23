@@ -8,6 +8,8 @@ TagManager:
   - Monster
   - ItemSpawnPoint
   - ObstacleSpawnPoint
+  - ItemBox
+  - TimeBox
   layers:
   - Default
   - TransparentFX
