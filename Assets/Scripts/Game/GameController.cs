@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
         public ItemCompendium.ItemData collectedItem;
         public void StartPlayer()
         {
-            health = 100;            
+            health = 100;
             limitHealth = 100;
             maxHealth = 200;
             resistance = 0f;
@@ -121,6 +121,7 @@ public class GameController : MonoBehaviour
     void LoadLevel1()
     {
         timeLeft = 60f;
+        Debug.Log(timeLeft);
         timeBox = GameObject.FindGameObjectWithTag("TimeBox").GetComponent<Text>();
     }
     void generateItems()
