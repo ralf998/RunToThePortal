@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour {
     public void damagePlayer(int damage)
     {
         playerData.health -= damage * (int)(1f - resistance);
-        if(playerData.health <= 0) { gameController.gameOver = true; }
+        //if(playerData.health <= 0) { gameController.gameOver = true; }
     }
 
     void useItem()

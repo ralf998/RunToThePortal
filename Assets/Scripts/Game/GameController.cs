@@ -6,11 +6,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
+//using static UnityEditor.Progress;
 
-public class GameController : MonoBehaviour
-{
-
+public class GameController : MonoBehaviour {
 
     public struct PlayerData
     {
@@ -50,7 +48,7 @@ public class GameController : MonoBehaviour
     int generator;
     SpriteRenderer aux;
     private CollectibleItem itemScript;
-    public bool gameOver;
+    //public bool gameOver;
 
 
     // Final Variables    
@@ -84,7 +82,7 @@ public class GameController : MonoBehaviour
             Instance = this;
         }
         DontDestroyOnLoad(gameObject);
-        gameOver = false;
+        //gameOver = false;
     }
 
     // Start is called before the first frame update
@@ -121,8 +119,7 @@ public class GameController : MonoBehaviour
     void LoadLevel1()
     {
         timeLeft = 60f;
-        Debug.Log(timeLeft);
-        timeBox = GameObject.FindGameObjectWithTag("TimeBox").GetComponent<Text>();
+        //timeBox = GameObject.FindGameObjectWithTag("TimeBox").GetComponent<Text>();
     }
     void generateItems()
     {
@@ -151,11 +148,13 @@ public class GameController : MonoBehaviour
     private void Update() {
         if(timeLeft > 0) {
             timeLeft-= Time.deltaTime;
-            timeBox.text = "Time: " + string.Format("{0:N0}", timeLeft) + "s";
-        } //else if (portal != null && portal.GetComponent<SpriteRenderer>().enabled == false) {
-        else if(gameOver) {
+            Debug.Log(timeLeft);
+            //timeBox.text = "Time: " + string.Format("{0:N0}", timeLeft) + "s";
+        } else if (portal != null && portal.GetComponent<SpriteRenderer>().enabled == false) {
+        //else if(gameOver) {
             portal.GetComponent<Portal>().Activate();
         }
+        else {Debug.Log("nao");}
     }
 
     //temporario enquanto so tem 1 level
