@@ -5,7 +5,7 @@ public class ItemCompendium : MonoBehaviour
 {
     public static ItemCompendium Instance { get; private set; }
     public List<ItemCompendium.ItemData> itemGlossary;
-    public List<Sprite> sprites;
+    public List<GameObject> sprites;
 
     public struct ItemData
     {

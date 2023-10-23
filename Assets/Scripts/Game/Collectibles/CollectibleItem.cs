@@ -45,7 +45,9 @@ public class CollectibleItem : MonoBehaviour
         itemName = currentItem.Name;
         itemDescription = currentItem.Description;
         itemID = currentItem.ID;
-        gameObject.GetComponent<SpriteRenderer>().sprite = compendium.sprites[randomID];
+        gameObject.GetComponent<SpriteRenderer>().sprite = compendium.sprites[randomID].GetComponent<SpriteRenderer>().sprite;
+        if(compendium.sprites[randomID].GetComponent<Animator>().runtimeAnimatorController != null)gameObject.GetComponent<Animator>().runtimeAnimatorController = compendium.sprites[randomID].GetComponent<Animator>().runtimeAnimatorController;
+
     }
 
      void Update()
